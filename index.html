@@ -14,7 +14,6 @@
 		<link rel="stylesheet" href="vendors/framework7/dist/css/framework7.material.colors.min.css">
 		<!-- Path to your custom app styles-->
 		<link rel="stylesheet" href="static/my-styles.css">
-		
 	</head>
 	<body class="theme-orange" ng-app="anekaMasakanApps">
 		<div class="statusbar-overlay"></div>
@@ -73,15 +72,19 @@
 												<div afkl-lazy-image="{{ getImage(resep.image) }}"></div>
 											</div>
 											<div class="card-footer no-border">
-												<a ng-click="action.addFavorite($index)" class="link">Favorit</a>
-												<a ng-click="action.addReadLeter($index)" class="link">Baca nanti</a></div>
+												<a ng-click="action.addFavorite(resep, $index)" class="link"><i class="icon f7-icons" ng-class="[{iconNonFavorite: !resep.favorit}, {iconFavorite: resep.favorit}]"></i></a>
+												<a ng-click="action.addReadLeter(resep, $index)" ng-disabled="resep.readLeter" class="link">Baca nanti</a></div>
 										</div>
 										<div class="content-block">
 											<a ng-click="action.LoadMore()" class="button button-fill button-raised">Load More</a>
 										</div>
 									</div>
 								</div>
-								<div id="bacaNantiTab" class="page-content tab">
+								<div id="bacaNantiTab" class="page-content tab pull-to-refresh-content" data-ptr-distance="55">
+									<div class="pull-to-refresh-layer">
+										<div class="preloader"></div>
+										<div class="pull-to-refresh-arrow"></div>
+									</div>
 									<div ng-controller="listOfLaterResep" class="listOfLaterResep">
 										<div class="content-block-title">Terdapat {{ reseps.length }} resep masakan yang akan di baca.</div>
 										<div class="card ks-facebook-card" ng-repeat="resep in reseps">
@@ -114,6 +117,6 @@
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
 		<!-- Path to your app js-->
 		
-		<script type="text/javascript" src="static/apps.min.js"></script>
+		<script type="text/javascript" src="static/app.js"></script>
 	</body>
 </html>

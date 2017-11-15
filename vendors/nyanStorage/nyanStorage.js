@@ -45,6 +45,19 @@ nyanStorageContructor.prototype.put = function(key, data) {
 nyanStorageContructor.prototype.remove = function(key) {
 	localStorage.removeItem(key);
 }
+nyanStorageContructor.prototype.update = function(key, data) {
+	var isAvailable = (localStorage.getItem(key) == null) ? false : true;
+
+	if (isAvailable) {
+		var datas = JSON.parse(localStorage.getItem(key));
+		datas.push(data);
+		localStorage.setItem(key, JSON.stringify(datas));
+	} else {
+		var content = [data];
+
+		localStorage.setItem(key, JSON.stringify(content));
+	}
+}
 nyanStorageContructor.prototype.getAll = function() {
 	var allData = localStorage,
 		objectS = {},

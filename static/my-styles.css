@@ -1,0 +1,130 @@
+.notif-msg {
+	padding: 8px;
+	background-color: #4CAF50;
+    color: #FFF;
+}
+.notif-msg > p {
+	margin: 0;
+}
+.no-margin {
+	margin: 0;
+}
+.content-padding-16 {
+	padding: 16px;
+}
+.content-padding-8 {
+	padding: 8px;
+}
+.tiny {
+	margin: 4px 0 0 0;
+	padding: 0 8px;
+}
+.tiny-content {
+	padding: 0 8px;
+}
+.sad {
+	font-size: 62px;
+	color: rgba(0,0,0,0.4);
+	font-family: 'Roboto Mono',monospace;
+}
+.content-nowrap {
+	padding: 8px 0;
+	white-space: nowrap;
+}
+.toolbar-fixed .toolbar {
+	box-shadow: 0 8px 10px -4px rgba(0,0,0,.2) !important;
+}
+.icon > .badge {
+	border-radius: 50%;
+}
+.menu-bottom {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    box-shadow: none !important;
+    padding-bottom: 16px;
+
+    background-color: #EEEEEE;
+    border-top: 3px solid #E0E0E0;
+}
+.col-6 {
+	width: calc(50% - 0.5px);
+}
+span.help {
+    color: white;
+    background-color: #2196f3;
+    padding: 1px 6px;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.ks-facebook-card .card-header {
+  display: block;
+  padding: 10px;
+}
+.ks-facebook-card .ks-facebook-avatar {
+  float: left;
+}
+.ks-facebook-card .ks-facebook-name {
+  margin-left: 44px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.ks-facebook-card .ks-facebook-date {
+  margin-left: 44px;
+  font-size: 13px;
+  color: #8e8e93;
+}
+.ks-facebook-card .card-footer {
+  background: #fafafa;
+}
+.ks-facebook-card .card-footer a {
+  color: #81848b;
+  font-weight: 500;
+}
+.ks-facebook-card .card-content img {
+  display: block;
+  width: 100%;
+}
+.ks-facebook-card .card-content-inner {
+  padding: 15px 10px;
+}
+
+/* preventing reflow lazy image setup */
+.js .afkl-lazy-wrapper {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  display: block;
+}
+/* auto size our image */
+.afkl-lazy-wrapper .afkl-lazy-image {
+  width: 100%;
+}
+
+/* default loading state */
+.afkl-lazy-image-loading {
+  background-color: #eee;
+}
+
+
+/* available ratio's, make your own if they are different on different devices or simply extend */
+.afkl-img-ratio-4-2,
+.afkl-img-ratio-2-1 {
+  padding-bottom: 50%; /* (2/4)*100 */
+}
+.afkl-img-ratio-16-9 {
+  padding-bottom: 56.25%; /* (9/16)*100 */
+}
+.afkl-img-ratio-3-2 {
+  padding-bottom: 66.67%; /* now calculation is clear, right :) */;
+}
+.afkl-img-ratio-1-1 {
+  padding-bottom: 100%;
+}
+.afkl-img-ratio-4-3 {
+  padding-bottom: 75%;
+}
+.afkl-img-ratio-3-4 {
+  padding-bottom: 133%;
+}

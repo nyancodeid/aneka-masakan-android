@@ -144,6 +144,10 @@ i.icon.iconNonFavorite {
     font-size: 18px;
     background-color: #dcdcdc;
 }
+.instruction li {
+    text-align: justify;
+    text-justify: inter-word;
+}
 #overlay-preloader {
     position: absolute;
     top: 0;

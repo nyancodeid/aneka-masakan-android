@@ -144,7 +144,7 @@ i.icon.iconNonFavorite {
     font-size: 18px;
     background-color: #dcdcdc;
 }
-.instruction li {
+#instruction li {
     text-align: justify;
     text-justify: inter-word;
 }

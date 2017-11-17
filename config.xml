@@ -24,6 +24,10 @@
 
   <access origin="*"/>
 
+  <feature name="App">
+      <param name="android-package" value="org.apache.cordova.App" />
+  </feature>
+
   <platform name="android">
       <preference name="android-minSdkVersion" value="19" /> <!-- Kitkat -->
 

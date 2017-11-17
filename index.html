@@ -16,6 +16,19 @@
 		<link rel="stylesheet" href="static/my-styles.css">
 	</head>
 	<body class="theme-orange" ng-app="anekaMasakanApps">
+		<div id="overlay-preloader">
+			<div class="cssload-thecube">
+				<div class="cssload-cube cssload-c1"></div>
+				<div class="cssload-cube cssload-c2"></div>
+				<div class="cssload-cube cssload-c4"></div>
+				<div class="cssload-cube cssload-c3"></div>
+			</div>
+			<div align="center" style="padding: 20px 0;">
+				<img class="sad" style="display: none;" src="static/emoji.png" alt="" width="45%">
+				<h4>Loading..</h4>
+				<button class="button button-fill" style="display: none;">Try Again</button>
+			</div>
+		</div>
 		<div class="statusbar-overlay"></div>
 		<div class="panel-overlay"></div>
 		<!-- Panel -->
@@ -53,7 +66,7 @@
 						</div>
 						<div class="tabs-animated-wrap">
 							<div class="tabs">
-								<div id="resepTab" class="page-content tab active pull-to-refresh-content" data-ptr-distance="55">
+								<div id="resepTab" class="page-content tab active pull-to-refresh-content" data-ptr-distance="55" afkl-image-container>
 									<div class="pull-to-refresh-layer">
 										<div class="preloader"></div>
 										<div class="pull-to-refresh-arrow"></div>
@@ -61,15 +74,15 @@
 									<div ng-controller="listOfResep" class="listOfResep">
 										<div class="content-block-title">Terdapat {{ reseps.length }} Resep</div>
 										<div class="card ks-facebook-card" ng-repeat="resep in reseps">
-											<div ng-click="action.readNow($index)" class="card-header no-border">
+											<div ng-click="action.readNow(resep.id, $index)" class="card-header no-border">
 												<div class="ks-facebook-avatar"><img src="images/goulash.jpg" width="34" height="34"/>
 												</div>
 												<div class="ks-facebook-name">{{ resep.name }}</div>
 												<div class="ks-facebook-date">{{ resep.servings }}</div>
 											</div>
-											<div class="card-content" afkl-image-container>
+											<div class="card-content">
 												<div class="content-block content-padding-8">{{ getIntro($index) }}</div>
-												<div afkl-lazy-image="{{ getImage(resep.image) }}"></div>
+												<div afkl-lazy-image="{{ getImage(resep.image) }}" ng-click="action.readNow(resep.id, $index)"></div>
 											</div>
 											<div class="card-footer no-border">
 												<a ng-click="action.addFavorite(resep, $index)" class="link"><i class="icon f7-icons" ng-class="[{iconNonFavorite: !resep.favorit}, {iconFavorite: resep.favorit}]"></i></a>
@@ -86,7 +99,8 @@
 										<div class="pull-to-refresh-arrow"></div>
 									</div>
 									<div ng-controller="listOfLaterResep" class="listOfLaterResep">
-										<div class="content-block-title">Terdapat {{ reseps.length }} resep masakan yang akan di baca.</div>
+										<div class="content-block-title" ng-hide="isReadLeterEmpty">Terdapat {{ reseps.length }} resep masakan yang akan di baca.</div>
+										<div class="content-block-title" ng-show="isReadLeterEmpty"><center>Tidak ada resep yang dibaca nanti.</center></div>
 										<div class="card ks-facebook-card" ng-repeat="resep in reseps">
 											<div class="card-header no-border">
 												<div class="ks-facebook-avatar"><img src="images/goulash.jpg" width="34" height="34"/>
@@ -98,8 +112,8 @@
 												<img ng-src="{{ getImage(resep.image) }}" width="100%"/>
 											</div>
 											<div class="card-footer no-border">
-												<a ng-click="action.addFavorite($index)" class="link">Favorit</a>
-												<a ng-click="action.addReadLeter($index)" class="link">Hapus</a></div>
+												<a ng-click="action.addFavorite(resep, $index)" class="link"><i class="icon f7-icons" ng-class="[{iconNonFavorite: !resep.favorit}, {iconFavorite: resep.favorit}]"></i></a>
+												<a ng-click="action.delete($index)" class="link">Hapus</a></div>
 										</div>
 									</div>
 								</div>
@@ -114,6 +128,7 @@
 		<script type="text/javascript" src="vendors/framework7/dist/js/framework7.min.js"></script>
 		<script type="text/javascript" src="vendors/nyanStorage/nyanStorage.js"></script>
 		<script type="text/javascript" src="vendors/angular/lazy-image.min.js"></script>
+		<script type="text/javascript" src="vendors/underscore/underscore-min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
 		<!-- Path to your app js-->
 		

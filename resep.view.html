@@ -1,15 +1,22 @@
-
-<div data-page="resep" class="page navbar-fixed" ng-controller="resepView">
+<div data-page="resepView" class="page navbar-fixed">
 	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="left">
 				<a id="backButton" class="link icon-only"> <i class="icon icon-back"></i></a>
 			</div>
-			<div class="center sliding"></div>
+			<div class="center sliding" id="title"></div>
 		</div>
 	</div>
 	<div class="page-content resep-screen-content">
-
-	
+		<img id="thumbnail" src="" alt="" width="100%">
+		<div class="content-block-title">Bahan Bahan</div>
+		<div class="content-block">
+			<ul id="bahan"></ul>
+		</div>
+		<div class="content-block-title">Cara Memasak</div>
+		<div id="instruction" class="content-block"></div>
+		<div class="content-block pesan">
+			<center>Mudah kan, Jangan lupa untuk Rate dan Share aplikasi ini ke temen temen-mu ya. </center>
+		</div>
 	</div>
 </div>
